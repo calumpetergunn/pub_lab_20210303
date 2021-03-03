@@ -14,6 +14,13 @@ class TestCustomer(unittest.TestCase):
         self.assertEqual(10.45, self.customer.wallet)
 
     def test_can_afford_drink(self):
-        drink = Drink("Tequilla Sunrise", 4)
+        drink = Drink("Tequilla Sunrise", 4, 5)
         drink_price = drink.price
         self.assertEqual(True, self.customer.can_afford_drink(drink_price))
+
+    def test_drunkenness_level(self):
+        drink = Drink("Tequilla Sunrise", 4, 5)
+        drink_alc_level = drink.alcohol_level
+        self.assertEqual(5, self.customer.customer_drunkness(drink_alc_level))
+
+    

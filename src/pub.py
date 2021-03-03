@@ -26,7 +26,15 @@ class Pub:
     # take drink from stock, take customer money and add to till
     def sell_drink_to_customer(self, customer, drink):
         if self.check_if_drink_in_stock(drink) == True:
-            customer.take_customers_money(drink.price)
-            self.increase_till_total(drink.price)
-            self.remove_from_stock(drink)
+            if self.age_check(customer) == True:
+                customer.take_customers_money(drink.price)
+                self.increase_till_total(drink.price)
+                self.remove_from_stock(drink)
+
+    # check age of customer
+    def age_check(self, customer):
+        return customer.age >= 18
+
+    def drunkeness_check(self, customer):
+        return customer.customer_drunkness > 20
    

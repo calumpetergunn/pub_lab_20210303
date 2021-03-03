@@ -1,8 +1,11 @@
 class Customer:
+
+
     def __init__(self, name, wallet):
         self.name = name
         self.wallet = wallet
-        # self.age = age
+        self.age = 0
+        self.drunkenness = 0
         # self.alcohol_level_customer = alcohol_level_customer
 
     # check if customer can afford drink
@@ -12,3 +15,8 @@ class Customer:
     # take money from customer wallet
     def take_customers_money(self, drink_cost):
         self.wallet -= drink_cost
+
+    def customer_drunkness(self, drink):
+        current_drunkness = self.drunkenness + drink
+        return current_drunkness
+        
